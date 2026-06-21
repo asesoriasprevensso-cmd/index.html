@@ -1,0 +1,39 @@
+<div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:24px 0">
+  <div style="background:#ffffff;padding:20px;border-radius:var(--border-radius-lg);border:1px solid var(--color-border-tertiary)">
+    <canvas id="qr-canvas"></canvas>
+  </div>
+  <div style="text-align:center">
+    <div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">Prevensso Pro — Presentación Interactiva</div>
+    <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px;word-break:break-all">https://host-html.com/p/vbpvpj</div>
+  </div>
+  <a href="https://host-html.com/p/vbpvpj" style="font-size:12px;color:var(--color-text-info);text-decoration:none">Abrir enlace <i class="ti ti-external-link" style="font-size:12px"></i></a>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function(){
+  var url = "https://host-html.com/p/vbpvpj";
+  var holder = document.createElement('div');
+  var qr = new QRCode(holder, {
+    text: url,
+    width: 220,
+    height: 220,
+    colorDark: "#0D1B3E",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.M
+  });
+  setTimeout(function(){
+    var img = holder.querySelector('img') || holder.querySelector('canvas');
+    var target = document.getElementById('qr-canvas');
+    if(img){
+      var w = img.width || 220, h = img.height || 220;
+      target.width = w; target.height = h;
+      var ctx = target.getContext('2d');
+      if(img.tagName === 'IMG'){
+        ctx.drawImage(img, 0, 0, w, h);
+      } else {
+        ctx.drawImage(img, 0, 0);
+      }
+    }
+  }, 150);
+})();
+</script>
